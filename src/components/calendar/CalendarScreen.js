@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import moment from 'moment';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
+import { CalendarModal } from './CalendarModal';
 
 import { Navbar } from '../ui/Navbar';
 import { CalendarEvent } from './CalendarEvent';
@@ -74,6 +75,8 @@ export const CalendarScreen = () => {
                 onView={onViewChange}
                 view={lastView}
             />
+
+            <CalendarModal />
         </div>
     );
 };
