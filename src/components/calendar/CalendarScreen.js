@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import moment from 'moment';
+import { useDispatch } from 'react-redux';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import { CalendarModal } from './CalendarModal';
 
@@ -9,8 +10,10 @@ import { messages } from '../../helpers/calendar-messages-es';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'moment/locale/es';
-import { useDispatch } from 'react-redux';
+
 import { openModal } from '../../actions/uiActions';
+import { eventSetActive } from '../../actions/calendarActions';
+import { AddNewFab } from '../ui/AddNewFab';
 
 
 moment.locale('es');
@@ -38,7 +41,8 @@ export const CalendarScreen = () => {
     };
 
     const onSelectEvent = (e) => {
-        // TODO: select event handler
+        dispatch(eventSetActive(e));
+        dispatch(openModal());
     };
 
     const onViewChange = (e) => {
@@ -79,7 +83,7 @@ export const CalendarScreen = () => {
                 onView={onViewChange}
                 view={lastView}
             />
-
+            <AddNewFab />
             <CalendarModal />
         </div>
     );
