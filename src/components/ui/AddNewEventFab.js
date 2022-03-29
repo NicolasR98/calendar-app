@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { openModal } from '../../actions/uiActions';
 
-export const AddNewFab = () => {
+export const AddNewEventFab = () => {
     const dispatch = useDispatch();
 
     const handleOpenModal = () => {

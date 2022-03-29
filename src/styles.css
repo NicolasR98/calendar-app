@@ -73,3 +73,7 @@ body {
 	position: fixed;
 	right: 25px;
 }
+
+.fab--delete {
+	bottom: 115px;
+}
