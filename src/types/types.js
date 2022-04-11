@@ -8,7 +8,6 @@ export const types = {
     calendarUpdate: '[calendar] Update event',
     calendarDelete: '[calendar] Delete event',
 
-    authCheck: '[auth] Checking login state',
     authCheckFinish: '[auth] Finish checking login state',
     authStartLogin: '[auth] Start login',
     authLogin: '[auth] Login',
