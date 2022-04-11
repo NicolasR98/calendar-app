@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { startLogin } from '../../actions/authActions';
+import Swal from 'sweetalert2';
+import { startLogin, startRegister } from '../../actions/authActions';
 import { useForm } from '../../hooks/useForm';
 import './login.css';
 
@@ -11,11 +12,35 @@ export const LoginScreen = () => {
         loginEmail: 'nicolas@example.com',
         loginPassword: '123456',
     });
+    const [formRegisterValues, handleRegisterInputChange] = useForm({
+        registerName: 'Nicolas',
+        registerEmail: 'nicolas@example.com',
+        registerPassword: '123456',
+        registerPasswordRepeat: '123456',
+    });
     const { loginEmail, loginPassword } = formLoginValues;
+    const { registerName, registerEmail, registerPassword, registerPasswordRepeat } = formRegisterValues;
 
     const handleLogin = (e) => {
         e.preventDefault();
-        dispatch(startLogin(loginEmail, loginPassword));
+        dispatch(startLogin({
+            email: loginEmail,
+            password: loginPassword,
+        }));
+    };
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+
+        if (registerPassword !== registerPasswordRepeat) {
+            return Swal.fire('Error', 'The passwords must be the same', 'error');
+        };
+
+        dispatch(startRegister({
+            email: registerEmail,
+            password: registerPassword,
+            name: registerName,
+        }));
     };
 
     return (
@@ -56,12 +81,15 @@ export const LoginScreen = () => {
 
                 <div className="col-md-6 login-form-2">
                     <h3>Sign Up</h3>
-                    <form>
+                    <form onSubmit={handleRegister}>
                         <div className="form-group mb-3">
                             <input
                                 type="text"
                                 className="form-control"
                                 placeholder="Name"
+                                value={registerName}
+                                name='registerName'
+                                onChange={handleRegisterInputChange}
                             />
                         </div>
                         <div className="form-group mb-3">
@@ -69,6 +97,9 @@ export const LoginScreen = () => {
                                 type="email"
                                 className="form-control"
                                 placeholder="Email"
+                                value={registerEmail}
+                                name='registerEmail'
+                                onChange={handleRegisterInputChange}
                             />
                         </div>
                         <div className="form-group mb-3">
@@ -76,6 +107,9 @@ export const LoginScreen = () => {
                                 type="password"
                                 className="form-control"
                                 placeholder="Password"
+                                value={registerPassword}
+                                name='registerPassword'
+                                onChange={handleRegisterInputChange}
                             />
                         </div>
 
@@ -84,6 +118,9 @@ export const LoginScreen = () => {
                                 type="password"
                                 className="form-control"
                                 placeholder="Repeat password"
+                                value={registerPasswordRepeat}
+                                name='registerPasswordRepeat'
+                                onChange={handleRegisterInputChange}
                             />
                         </div>
 
