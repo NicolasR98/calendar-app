@@ -82,9 +82,18 @@ export const startChecking = () => {
     };
 };
 
+export const startLogout = () => {
+    return (dispatch) => {
+        localStorage.clear();
+        dispatch(logout());
+    };
+};
+
 const checkCheckingFinish = () => ({ type: types.authCheckFinish });
 
 const login = (user) => ({
     type: types.authLogin,
     payload: user
 });
+
+const logout = () => ({ type: types.authLogout });
