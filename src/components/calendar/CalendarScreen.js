@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
@@ -12,7 +12,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'moment/locale/es';
 
 import { openModal } from '../../actions/uiActions';
-import { eventClearActive, eventSetActive } from '../../actions/calendarActions';
+import { eventClearActive, eventSetActive, eventStartLoading } from '../../actions/calendarActions';
 import { AddNewEventFab } from '../ui/AddNewEventFab';
 import { DeleteEventFab } from '../ui/DeleteEventFab';
 
@@ -28,6 +28,10 @@ export const CalendarScreen = () => {
 
     const [lastView, setLastView] = useState(localStorage.getItem('lastView') || 'month');
 
+    useEffect(() => {
+        dispatch(eventStartLoading());
+    }, [dispatch]);
+
     const onDoubleClick = (e) => {
         dispatch(openModal());
     };
@@ -42,8 +46,7 @@ export const CalendarScreen = () => {
     };
 
     const onSelectedSlot = () => {
-        dispatch(eventClearActive())
-
+        dispatch(eventClearActive());
     };
 
     const eventStyleGetter = (event, start, end, isSelected) => {

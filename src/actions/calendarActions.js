@@ -1,5 +1,6 @@
 import { types } from "../types/types";
 import { fetchWithToken } from "../helpers/fetch";
+import { prepareEvents } from "../helpers/prepareEvents";
 
 export const eventStartAddNew = (event) => {
     return async (dispatch, getState) => {
@@ -29,6 +30,31 @@ export const eventStartAddNew = (event) => {
 
     };
 };
+
+export const eventStartLoading = () => {
+    return async (dispatch) => {
+        const auxParams = {
+            endpoint: 'events',
+        };
+
+        try {
+            const resp = await fetchWithToken(auxParams);
+            const body = await resp.json();
+
+            if (body.ok) {
+                const preparedEvents = prepareEvents(body.events);
+                dispatch(eventsLoad(preparedEvents));
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
+};
+
+const eventsLoad = (events) => ({
+    type: types.calendarLoad,
+    payload: events,
+});
 
 const eventAddNew = (event) => ({
     type: types.calendarAddNew,
