@@ -1,6 +1,36 @@
 import { types } from "../types/types";
+import { fetchWithToken } from "../helpers/fetch";
 
-export const eventAddNew = (event) => ({
+export const eventStartAddNew = (event) => {
+    return async (dispatch, getState) => {
+        const auxParams = {
+            endpoint: 'events',
+            data: event,
+            method: 'POST'
+        };
+        const { uid, name } = getState().auth;
+
+        try {
+            const resp = await fetchWithToken(auxParams);
+            const body = await resp.json();
+
+            if (body.ok) {
+                event.id = body.event.id;
+                event.user = {
+                    _id: uid,
+                    name,
+                };
+                dispatch(eventAddNew(event));
+            };
+
+        } catch (error) {
+            console.error(error);
+        }
+
+    };
+};
+
+const eventAddNew = (event) => ({
     type: types.calendarAddNew,
     payload: event,
 });

@@ -8,7 +8,7 @@ import Modal from 'react-modal/lib/components/Modal';
 
 import { customStyles } from './styles/customStyles';
 import { closeModal } from '../../actions/uiActions';
-import { eventAddNew, eventClearActive, eventUpdate } from '../../actions/calendarActions';
+import { eventStartAddNew, eventClearActive, eventUpdate } from '../../actions/calendarActions';
 
 
 Modal.setAppElement('#root');
@@ -88,14 +88,7 @@ export const CalendarModal = () => {
             dispatch(eventUpdate(formValues));
         } else {
             // Add new event with temporary id
-            dispatch(eventAddNew({
-                ...formValues,
-                id: new Date().getTime(),
-                user: {
-                    name: 'Nicolas test',
-                    _id: '123',
-                },
-            }));
+            dispatch(eventStartAddNew(formValues));
         };
 
         setIsTitleValid(true);
