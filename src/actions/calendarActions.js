@@ -75,6 +75,29 @@ export const eventStartUpdating = (event) => {
     };
 };
 
+export const eventStartDelete = () => {
+    return async (dispatch, getState) => {
+        const { id } = getState().calendar.activeEvent;
+        const auxParams = {
+            endpoint: `events/${id}`,
+            method: 'DELETE',
+        };
+
+        try {
+            const resp = await fetchWithToken(auxParams);
+            const body = await resp.json();
+
+            if (body.ok) {
+                dispatch(eventDelete());
+            } else {
+                Swal.fire('Error', body.msg, 'error');
+            };
+        } catch (error) {
+            console.error(error);
+        }
+    };
+};
+
 const eventsLoad = (events) => ({
     type: types.calendarLoad,
     payload: events,
@@ -95,6 +118,8 @@ const eventUpdate = (event) => ({
     payload: event,
 });
 
-export const eventDelete = () => ({ type: types.calendarDelete });
+const eventDelete = () => ({ type: types.calendarDelete });
 
 export const eventClearActive = () => ({ type: types.calendarClearActive });
+
+export const eventClearAll = () => ({ type: types.calendarClearAll });

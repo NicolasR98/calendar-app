@@ -1,10 +1,5 @@
-html,
-body {
-	height: 100%;
-	width: 100%;
-}
-
 .calendar-screen {
+	position: relative;
 	display: flex;
 	flex-flow: column;
 	height: 100vh;
@@ -72,8 +67,10 @@ body {
 	padding: 20px;
 	position: fixed;
 	right: 25px;
+	cursor: pointer;
 }
 
 .fab--delete {
 	bottom: 115px;
+	z-index: 100;
 }
