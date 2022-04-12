@@ -11,8 +11,12 @@ import { messages } from '../../helpers/calendar-messages-es';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'moment/locale/es';
 
+import {
+    eventClearActive,
+    eventSetActive,
+    eventStartLoading
+} from '../../actions/calendarActions';
 import { openModal } from '../../actions/uiActions';
-import { eventClearActive, eventSetActive, eventStartLoading } from '../../actions/calendarActions';
 import { AddNewEventFab } from '../ui/AddNewEventFab';
 import { DeleteEventFab } from '../ui/DeleteEventFab';
 
@@ -25,6 +29,7 @@ const localizer = momentLocalizer(moment);
 export const CalendarScreen = () => {
     const dispatch = useDispatch();
     const { events, activeEvent } = useSelector(state => state.calendar);
+    const { uid } = useSelector(state => state.auth);
 
     const [lastView, setLastView] = useState(localStorage.getItem('lastView') || 'month');
 
@@ -51,7 +56,7 @@ export const CalendarScreen = () => {
 
     const eventStyleGetter = (event, start, end, isSelected) => {
         const style = {
-            backgroundColor: '#367CF7',
+            backgroundColor: uid === event.user._id ? '#367CF7' : '#465660',
             color: 'white',
             borderRadius: '0px',
             opacity: 0.8,
