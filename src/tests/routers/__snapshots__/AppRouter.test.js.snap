@@ -32,7 +32,7 @@ exports[`Tests on <AppRouter /> Should public route if user is not logged 1`] = 
               onChange={[Function]}
               placeholder="Email"
               type="email"
-              value="nicolas@example.com"
+              value=""
             />
           </div>
           <div
@@ -44,7 +44,7 @@ exports[`Tests on <AppRouter /> Should public route if user is not logged 1`] = 
               onChange={[Function]}
               placeholder="Password"
               type="password"
-              value="123456"
+              value=""
             />
           </div>
           <div
@@ -76,7 +76,7 @@ exports[`Tests on <AppRouter /> Should public route if user is not logged 1`] = 
               onChange={[Function]}
               placeholder="Name"
               type="text"
-              value="Nicolas"
+              value=""
             />
           </div>
           <div
@@ -88,7 +88,7 @@ exports[`Tests on <AppRouter /> Should public route if user is not logged 1`] = 
               onChange={[Function]}
               placeholder="Email"
               type="email"
-              value="nicolas@example.com"
+              value=""
             />
           </div>
           <div
@@ -100,7 +100,7 @@ exports[`Tests on <AppRouter /> Should public route if user is not logged 1`] = 
               onChange={[Function]}
               placeholder="Password"
               type="password"
-              value="123456"
+              value=""
             />
           </div>
           <div
@@ -112,7 +112,7 @@ exports[`Tests on <AppRouter /> Should public route if user is not logged 1`] = 
               onChange={[Function]}
               placeholder="Repeat password"
               type="password"
-              value="123456"
+              value=""
             />
           </div>
           <div

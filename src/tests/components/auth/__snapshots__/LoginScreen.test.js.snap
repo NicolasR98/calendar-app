@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests on <LoginScreen /> Should display correctly 1`] = `
+<div
+  className="container login-container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-6 login-form-1"
+    >
+      <h3>
+        Login
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group mb-3"
+        >
+          <input
+            className="form-control"
+            name="loginEmail"
+            onChange={[Function]}
+            placeholder="Email"
+            type="email"
+            value=""
+          />
+        </div>
+        <div
+          className="form-group mb-3"
+        >
+          <input
+            className="form-control"
+            name="loginPassword"
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+            value=""
+          />
+        </div>
+        <div
+          className="form-group mb-3"
+        >
+          <input
+            className="btnSubmit"
+            type="submit"
+            value="Login"
+          />
+        </div>
+      </form>
+    </div>
+    <div
+      className="col-md-6 login-form-2"
+    >
+      <h3>
+        Sign Up
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group mb-3"
+        >
+          <input
+            className="form-control"
+            name="registerName"
+            onChange={[Function]}
+            placeholder="Name"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="form-group mb-3"
+        >
+          <input
+            className="form-control"
+            name="registerEmail"
+            onChange={[Function]}
+            placeholder="Email"
+            type="email"
+            value=""
+          />
+        </div>
+        <div
+          className="form-group mb-3"
+        >
+          <input
+            className="form-control"
+            name="registerPassword"
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+            value=""
+          />
+        </div>
+        <div
+          className="form-group mb-3"
+        >
+          <input
+            className="form-control"
+            name="registerPasswordRepeat"
+            onChange={[Function]}
+            placeholder="Repeat password"
+            type="password"
+            value=""
+          />
+        </div>
+        <div
+          className="form-group mb-3"
+        >
+          <input
+            className="btnSubmit"
+            type="submit"
+            value="Sign Up"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
