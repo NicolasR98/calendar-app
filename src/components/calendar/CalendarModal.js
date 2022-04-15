@@ -14,8 +14,9 @@ import {
     eventStartUpdating
 } from '../../actions/calendarActions';
 
-
-Modal.setAppElement('#root');
+if (process.env.NODE_ENV !== 'test') {
+    Modal.setAppElement('#root');
+};
 
 const dateNow = moment().minutes(0).seconds(0).milliseconds(0).add(1, 'hours');
 const dateNowPlus1 = dateNow.clone().add(1, 'hours');

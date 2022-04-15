@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests on <AppRouter /> Should display correctly 1`] = `
+<h5>
+  Loading...
+</h5>
+`;
+
+exports[`Tests on <AppRouter /> Should public route if user is not logged 1`] = `
+<div>
+  <div
+    className="container login-container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-6 login-form-1"
+      >
+        <h3>
+          Login
+        </h3>
+        <form
+          onSubmit={[Function]}
+        >
+          <div
+            className="form-group mb-3"
+          >
+            <input
+              className="form-control"
+              name="loginEmail"
+              onChange={[Function]}
+              placeholder="Email"
+              type="email"
+              value="nicolas@example.com"
+            />
+          </div>
+          <div
+            className="form-group mb-3"
+          >
+            <input
+              className="form-control"
+              name="loginPassword"
+              onChange={[Function]}
+              placeholder="Password"
+              type="password"
+              value="123456"
+            />
+          </div>
+          <div
+            className="form-group mb-3"
+          >
+            <input
+              className="btnSubmit"
+              type="submit"
+              value="Login"
+            />
+          </div>
+        </form>
+      </div>
+      <div
+        className="col-md-6 login-form-2"
+      >
+        <h3>
+          Sign Up
+        </h3>
+        <form
+          onSubmit={[Function]}
+        >
+          <div
+            className="form-group mb-3"
+          >
+            <input
+              className="form-control"
+              name="registerName"
+              onChange={[Function]}
+              placeholder="Name"
+              type="text"
+              value="Nicolas"
+            />
+          </div>
+          <div
+            className="form-group mb-3"
+          >
+            <input
+              className="form-control"
+              name="registerEmail"
+              onChange={[Function]}
+              placeholder="Email"
+              type="email"
+              value="nicolas@example.com"
+            />
+          </div>
+          <div
+            className="form-group mb-3"
+          >
+            <input
+              className="form-control"
+              name="registerPassword"
+              onChange={[Function]}
+              placeholder="Password"
+              type="password"
+              value="123456"
+            />
+          </div>
+          <div
+            className="form-group mb-3"
+          >
+            <input
+              className="form-control"
+              name="registerPasswordRepeat"
+              onChange={[Function]}
+              placeholder="Repeat password"
+              type="password"
+              value="123456"
+            />
+          </div>
+          <div
+            className="form-group mb-3"
+          >
+            <input
+              className="btnSubmit"
+              type="submit"
+              value="Sign Up"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
