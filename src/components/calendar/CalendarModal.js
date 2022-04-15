@@ -108,6 +108,9 @@ export const CalendarModal = () => {
             style={customStyles}
             className='modal'
             overlayClassName='modal-background'
+            
+            // To be able to run the test we need to add the next prop
+            ariaHideApp={!process.env.NODE_ENV === 'test'}
         >
             <h1>{activeEvent ? 'Edit event' : 'New event'}</h1>
             <hr />
